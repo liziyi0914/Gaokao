@@ -28,7 +28,7 @@ class Layout extends react.Component {
 
 	render() {
 		return (
-			<div style={{color: this.state.fc,backgroundColor: this.state.bgc,height: '100%',position: 'relative'}} onClick={()=>this.toggleStyle()}>
+			<div style={{height: '100%',position: 'relative'}}>
 			{this.props.children}
 			</div>
 		);
