@@ -1,5 +1,6 @@
 import react from 'react';
 import { Row, Col } from 'antd';
+import Center from './Center';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
@@ -58,15 +59,15 @@ class TimeBoard extends react.Component {
 		this.end = moment(this.props.end,"YYYY-MM-DD HH:mm");
 		setInterval(()=>this.update(),1);
 		return (
-			<div style={{margin: 'auto',textAlign: 'center',position: 'relative',top: '25%',transform: 'translateY(-25%)'}}>
-			<div>{new String(this.state.now)}</div>
-			<div style={{fontSize:'2.5em',fontWeight: 'bold'}}>距离{this.props.title}还有</div>
-			<Line name="周" time={this.state.week}/>
-			<Line name="天" time={this.state.day}/>
-			<Line name="时" time={this.state.hour}/>
-			<Line name="分" time={this.state.min}/>
-			<Line name="秒" time={this.state.sec}/>
-			<Line name="毫秒" time={this.state.msec}/>
+			<div style={{textAlign:'center'}}>
+				<div>{new String(this.state.now)}</div>
+				<div style={{fontSize:'2.5em',fontWeight: 'bold'}}>距离{this.props.title}还有</div>
+				<Line name="周" time={this.state.week}/>
+				<Line name="天" time={this.state.day}/>
+				<Line name="时" time={this.state.hour}/>
+				<Line name="分" time={this.state.min}/>
+				<Line name="秒" time={this.state.sec}/>
+				<Line name="毫秒" time={this.state.msec}/>
 			</div>
 		);
 	}

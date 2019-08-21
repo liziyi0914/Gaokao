@@ -4,32 +4,17 @@ import TimeBoard from '../../components/TimeBoard';
 
 export default class extends react.Component {
 
-	light = {
-		bg: "white",
-		text: "black"
-	};
-
-	dark = {
-		bg: "black",
-		text: "white"
-	};
-
-	isDark = false;
-
 	constructor() {
 		super();
 		this.state = {
-			...this.light
+			click: 1
 		};
 	}
 
-	toggleStyle() {
-		if(this.isDark) {
-			this.setState(this.light);
-		} else {
-			this.setState(this.dark);
-		}
-		this.isDark = !this.isDark;
+	handleClick() {
+		this.setState({
+			click: this.state.click+1
+		});
 	}
 
 	render() {
@@ -41,8 +26,10 @@ export default class extends react.Component {
 			cfg = eval(new Buffer(decodeURIComponent(at),'base64').toString());
 		}
 		return (
-			<div style={{height:"100%",backgroundColor:this.state.bg,color:this.state.text}} onClick={()=>this.toggleStyle()}>
-				<Center><TimeBoard title={cfg[0]} end={cfg[1]}/></Center>
+			<div style={{height:"100%",width:"100%",background:"url(https://www.lzy2002.com/seewobg.jpg)",backgroundSize:"100% 100%",color:"white",textShadow:"2px 2px 5px #444"}}>
+				<div style={{width:"50%",height:"100%",float:"right"}} onClick={()=>this.handleClick()}>
+					{(this.state.click%3==0)?(<TimeBoard title={cfg[0]} end={cfg[1]}/>):null}
+				</div>
 			</div>
 		);
 	}
