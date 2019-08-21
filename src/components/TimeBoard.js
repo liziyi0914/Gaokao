@@ -50,7 +50,7 @@ class TimeBoard extends react.Component {
 			day: range.diff('days',true).toFixed(2),
 			hour: range.diff('hours',true).toFixed(2),
 			min: range.diff('minutes',true).toFixed(2),
-			sec: range.diff('seconds',true).toFixed(3),
+			sec: range.diff('seconds',true).toFixed(2),
 			msec: range.diff('millseconds',true)
 		});
 	}
