@@ -31,7 +31,7 @@ class Line extends react.Component {
 
 class TimeBoard extends react.Component {
 
-	end = moment("2020-06-07 9:00","YYYY-MM-DD HH:mm");
+	end = moment("2020-07-07 9:00","YYYY-MM-DD HH:mm");
 
 	static defaultProps = {
 		cfg: 'gaokao',
@@ -90,7 +90,7 @@ class TimeBoard extends react.Component {
 			);
 		var cfg;
 		if(at=="gaokao") {
-			cfg = ["高考","2020-06-07 09:00"];
+			cfg = ["高考","2020-07-07 09:00"];
 		} else {
 			cfg = eval(new Buffer(decodeURIComponent(at),'base64').toString());
 		}
