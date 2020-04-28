@@ -32,6 +32,7 @@ class Line extends react.Component {
 class TimeBoard extends react.Component {
 
 	end = moment("2020-07-07 9:00","YYYY-MM-DD HH:mm");
+	pid = null;
 
 	static defaultProps = {
 		cfg: 'gaokao',
@@ -67,6 +68,14 @@ class TimeBoard extends react.Component {
 		});
 	}
 
+	componentDidMount() {
+		if(this.pid==null)setInterval(()=>this.update(),5);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.pid);
+	}
+
 	render() {
 		var at = this.props.cfg;
 		var menu = (
@@ -95,11 +104,10 @@ class TimeBoard extends react.Component {
 			cfg = eval(new Buffer(decodeURIComponent(at),'base64').toString());
 		}
 		this.end = moment(cfg[1],"YYYY-MM-DD HH:mm");
-		setInterval(()=>this.update(),1);
 		return (
 			<div style={{textAlign:'center'}}>
 			<div>{new String(this.state.now)}</div>
-			<Dropdown overlay={menu} trigger={['click']}>
+			<Dropdown overlay={menu} trigger={['contextMenu']}>
 				<div style={{fontSize:'2.5em',fontWeight: 'bold'}}>距离{cfg[0]}还有</div>
 			</Dropdown>
 			<Line name="周" time={this.state.week}/>

@@ -9,10 +9,13 @@ export default {
 		['umi-plugin-react', {
 			antd: true,
 			dva: false,
-			dynamicImport: false,
+			dynamicImport: {
+				loadingComponent: './Loading',
+				webpackChunkName: true
+			},
 			title: 'gaokao',
 			dll: false,
-
+			fastClick: true,
 			routes: {
 				exclude: [
 					/components\//,
