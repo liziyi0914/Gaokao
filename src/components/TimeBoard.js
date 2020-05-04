@@ -17,10 +17,8 @@ class Line extends react.Component {
 	render() {
 		return (
 			<Row>
-			<Col span={12} style={{textAlign: 'right',fontSize:'1.5em',fontWeight: 'bold'}}>
+			<Col span={24} style={{textAlign: 'center',fontSize:'3.5em',fontWeight: 'bold'}}>
 			{this.props.time}
-			</Col>
-			<Col span={12} style={{textAlign: 'left'}}>
 			{this.props.name}
 			</Col>
 			</Row>
@@ -60,7 +58,7 @@ class TimeBoard extends react.Component {
 		this.setState({
 			now: now,
 			week: range.diff('weeks',true).toFixed(2),
-			day: range.diff('days',true).toFixed(2),
+			day: range.diff('days',true).toFixed(0),
 			hour: range.diff('hours',true).toFixed(2),
 			min: range.diff('minutes',true).toFixed(2),
 			sec: range.diff('seconds',true).toFixed(2),
@@ -69,7 +67,7 @@ class TimeBoard extends react.Component {
 	}
 
 	componentDidMount() {
-		if(this.pid==null)setInterval(()=>this.update(),5);
+		if(this.pid==null)setInterval(()=>this.update(),500);
 	}
 
 	componentWillUnmount() {
@@ -110,12 +108,7 @@ class TimeBoard extends react.Component {
 			<Dropdown overlay={menu} trigger={['contextMenu']}>
 				<div style={{fontSize:'2.5em',fontWeight: 'bold'}}>距离{cfg[0]}还有</div>
 			</Dropdown>
-			<Line name="周" time={this.state.week}/>
 			<Line name="天" time={this.state.day}/>
-			<Line name="时" time={this.state.hour}/>
-			<Line name="分" time={this.state.min}/>
-			<Line name="秒" time={this.state.sec}/>
-			<Line name="毫秒" time={this.state.msec}/>
 			</div>
 		);
 	}
