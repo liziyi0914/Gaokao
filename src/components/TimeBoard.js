@@ -59,7 +59,7 @@ class TimeBoard extends react.Component {
 			now: now,
 			week: range.diff('weeks',true).toFixed(2),
 			day: range.diff('days',true).toFixed(0),
-			hour: range.diff('hours',true).toFixed(2),
+			hour: range.diff('hours',true).toFixed(0),
 			min: range.diff('minutes',true).toFixed(2),
 			sec: range.diff('seconds',true).toFixed(2),
 			msec: range.diff('millseconds',true)
@@ -109,6 +109,7 @@ class TimeBoard extends react.Component {
 				<div style={{fontSize:'2.5em',fontWeight: 'bold'}}>距离{cfg[0]}还有</div>
 			</Dropdown>
 			<Line name="天" time={this.state.day}/>
+			<Line name="小时" time={this.state.hour}/>
 			</div>
 		);
 	}
