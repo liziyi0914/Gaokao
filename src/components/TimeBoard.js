@@ -17,8 +17,10 @@ class Line extends react.Component {
 	render() {
 		return (
 			<Row>
-			<Col span={24} style={{textAlign: 'center',fontSize:'3.5em',fontWeight: 'bold'}}>
+			<Col span={12} style={{textAlign: 'right',fontSize:'3.5em',fontWeight: 'bold'}}>
 			{this.props.time}
+			</Col>
+			<Col span={12} style={{textAlign: 'left',fontSize:'3.5em',fontWeight: 'bold'}}>
 			{this.props.name}
 			</Col>
 			</Row>
@@ -59,7 +61,7 @@ class TimeBoard extends react.Component {
 			now: now,
 			week: range.diff('weeks',true).toFixed(2),
 			day: range.diff('days',true).toFixed(0),
-			hour: range.diff('hours',true).toFixed(0),
+			hour: range.diff('hours',true).toFixed(1),
 			min: range.diff('minutes',true).toFixed(2),
 			sec: range.diff('seconds',true).toFixed(2),
 			msec: range.diff('millseconds',true)
