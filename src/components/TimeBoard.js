@@ -99,7 +99,7 @@ class TimeBoard extends react.Component {
 			);
 		var cfg;
 		if(at=="gaokao") {
-			cfg = ["高考","2020-07-07 09:00"];
+			cfg = ["高考","2021-06-07 09:00"];
 		} else {
 			cfg = eval(new Buffer(decodeURIComponent(at),'base64').toString());
 		}
